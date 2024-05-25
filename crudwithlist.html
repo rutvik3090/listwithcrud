@@ -1,0 +1,120 @@
+<script>
+    var id = []
+    var nam = []
+    var email = []
+    var Number = []
+    var iid = 1
+
+    var b = true
+    do {
+        var insert = parseInt(prompt('What you want to do ? \n \n1.insert \n2.view \n3.search \n4.update \n5.delete \n6.exit'))
+        if (insert == 1) {
+            var c = 0
+            do {
+                id.push(iid)
+                iid++
+                do {
+                    var Name = (prompt('Enter Your Name[maximum 3 character required]'))
+                }
+                while (Name.length < 3)
+                nam.push(Name)
+
+                var Email_Insert = (prompt('Enter Your Email'))
+                email.push(Email_Insert)
+
+                var Number_Insert = parseInt(prompt('Enter Your Number'))
+                Number.push(Number_Insert)
+
+                var Record = parseInt(prompt('DO YOu Want TO Another Record ? \n1.Yes \n2.No'))
+                if (Record != 1) {
+                    c = 1
+                }
+            }
+            while (c == 0)
+        }
+        // view
+        else if (insert == 2) {
+            var vi = ''
+            for (var k = 0; k < id.length; k++) {
+                vi = vi + id[k] + ' - ' + nam[k] + ' - ' + email[k] + ' - ' + Number[k] + '\n'
+            }
+            alert(vi)
+
+        }
+        else if (insert == 3) {
+            var se = 0
+            do {
+                var s = parseInt(prompt('What do you want to search for? \n \n1.name \n2.email'))
+                if (s == 1) {
+                    var snm = prompt('Enter name')
+                    for (var g = 0; g < id.length; g++) {
+                        if (snm == nam[g]) {
+                            alert(id[g] + ' - ' + nam[g] + ' - ' + email[g] + ' - ' + Number[g] + '\n')
+                        }
+                    }
+                }
+                else if (s == 2) {
+                    var ml = prompt('enter email-id')
+                    for (var c = 0; c < id.length; c++) {
+                        if (ml == email[c]) {
+                            alert(id[c] + ' - ' + nam[c] + ' - ' + email[c] + ' - ' + Number[c] + '\n')
+                        }
+                    }
+                }
+                var f = parseInt(prompt('do you want to continue yor not?\n\n1.yes\n2.no'))
+                if (f != 1) {
+                    se = 1
+                }
+            }
+            while (se == 0)
+        }
+        else if (insert == 4) {
+            var vi = '';
+            for (var k = 0; k < id.length; k++) {
+                vi = vi + id[k] + ' - ' + nam[k] + ' - ' + email[k] + ' - ' + Number[k] + '\n'
+            }
+            alert(vi)
+
+            var o = parseInt(prompt('enter id what you want to update'))
+            for (var b = 0; b < id.length; b++) {
+                if (o == id[b]) {
+                    alert(id[b] + nam[b] + email[b] + Number[b])
+                    var g = parseInt(prompt('tamare su update karvu che?\n \n1.name \n2.email'))
+                    if (g == 1) {
+                        nam[b] = prompt('Enter New Name:')
+                    }
+                    else if (g == 2) {
+                        eml[b] = prompt('Enter New Email:')
+                    }
+                }
+            }
+        }
+        else if (insert == 5) {
+            var f = parseInt(prompt('tamare kai id delate karvi che'))
+            for (var m = 0; m < id.length; m++) {
+                if (f == id[m]) {
+                    alert('this id is deleted')
+                    id.splice(m, 1)
+                    nam.splice(m, 1)
+                    Number.splice(m, 1)
+                    email.splice(m, 1)
+                    break;
+                }
+            }
+        }
+        else if (insert == 6) {
+            alert('thanks using my system')
+            b = false
+
+        }
+        else {
+            alert('wrong input')
+        }
+
+    }
+    while (b)
+
+
+
+
+</script>
